@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <header class="header">   
+      <nav class="navbar navbar-expand-lg">
+        <div class="search-panel">
+          <div class="search-inner d-flex align-items-center justify-content-center">
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>
+            <form id="searchForm" action="#">
+              <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+            <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
+              <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
+            <!-- Sidebar Toggle Btn-->
+            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+          </div>
+          <div class="right-menu list-inline no-margin-bottom list-inline-item logout"><a id="logout" href="signin.html" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h5"><%=company_name%></h1>
+              <p>Company</p>
+            </div>
+          </div>
+          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          <ul class="list-unstyled">
+            <li><a href="home.html"> <i class="icon-home"></i>Home </a></li>
+            <li class="active"><a href="supplyChain.html"> <i class="icon-grid"></i>Supply chain </a></li>
+            <li><a href="newAccount.html"> <i class="icon-padnote"></i>New Account </a></li>
+            <li><a href="transferAccount.html"> <i class="icon-padnote"></i>Transfer Account </a></li>
+            <li><a href="finance.html"> <i class="icon-padnote"></i>Finance </a></li>
+            <li><a href="payAccount.html"> <i class="icon-padnote"></i>Pay Account </a></li>
+            <li><a href="signin.html"> <i class="icon-logout"></i>Login page </a></li>
+        </nav>
+        <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <!-- Page Header-->
+        <div class="page-header no-margin-bottom">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Supply chain</h2>
+          </div>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+            <li class="breadcrumb-item active">Supply chain        </li>
+          </ul>
+        </div>
+        
+
+        <section class="no-padding-top">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="xxxufjtable col-lg-6">
+                  <div class="block margin-bottom-sm">
+                    <div class="title"><strong>Supply chain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=status%></strong></div>
+                    <div class="table-responsive"> 
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>buyer</th>
+                            <th>solder</th>
+                            <th>issue</th>
+                            <th>due</th>
+                            <th>good</th>
+                            <th>price</th>
+                            <th>transferd</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <%for(var i = 0; i < items.length; i++){%>  
+                                <tr>  
+                                    <td>*</td> 
+                                    <td><%=items[i].buyer%></td>  
+                                    <td><%=items[i].solder%></td>  
+                                    <td><%=items[i].issue_time%></td> 
+                                    <td><%=items[i].due_time%></td>  
+                                    <td><%=items[i].good%></td>  
+                                    <td><%=items[i].price%></td>  
+                                    <td><%=items[i].transferd%></td> 
+                                </tr>  
+                            <%}%>  
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+                
+              </div>
+             
+            </div>
+            <div class="xxxufjbtn">       
+                <input class="new_button btn-primary" onclick="prev_page()" type="submit" value="Prev">
+                <strong><page class="xxxufjpage">PAGE : <%=page%></page></strong>    
+                <input class="new_button xxxufjnext btn-primary" onclick="next_page()" type="submit" value="Next">
+            </div>
+          </section>
+
+          
+
+        <footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/front.js"></script>
+    <script src="/xxxufj/form.js"></script>
+  </body>
+</html>
+
